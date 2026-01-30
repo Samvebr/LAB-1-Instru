@@ -1,1 +1,1 @@
-# LAB-1-Monitoreo-del-patr-n-y-frecuencia-respiratoria
+# LAB-1 Monitoreo del-patrón y frecuencia respiratoria

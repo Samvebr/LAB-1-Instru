@@ -217,5 +217,8 @@ grid on;
 ## GRÁFICAS : 
 
 - Esta es la gráfica de una persona en resposo sin realizar ninguna verbalilzación:
-- <img width="742" height="488" alt="image" src="https://github.com/user-attachments/assets/7197c0e8-3a49-4b8a-89c0-0ee2c48b0842" />
+<img width="757" height="497" alt="image" src="https://github.com/user-attachments/assets/63a077c7-ba8f-4228-905e-3208580b7b0f" />
 
+- Esta es la gráfica de una persona que se encuentra realizando una verbalilzación:
+
+<img width="752" height="505" alt="image" src="https://github.com/user-attachments/assets/4875e8b8-e838-40e3-9ddb-14e0fe81ea3e" />

@@ -222,3 +222,8 @@ grid on;
 - Esta es la gráfica de una persona que se encuentra realizando una verbalilzación:
 
 <img width="752" height="505" alt="image" src="https://github.com/user-attachments/assets/4875e8b8-e838-40e3-9ddb-14e0fe81ea3e" />
+
+
+## ANALÍSIS: 
+
+## CONCLUSIONES

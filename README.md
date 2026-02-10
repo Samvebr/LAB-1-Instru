@@ -10,11 +10,12 @@ La frecuencia respiratoria es el número de respiraciones que una persona realiz
 ## OBJETIVOS: 
 
 - Objetivo General:
-- 
+  
 Evaluar la influencia del habla o la verbalización sobre el patrón respiratorio mediante el análisis de los cambios en la frecuencia respiratoria, con el fin de comprender cómo distintas condiciones fisiológicas pueden modificar la dinámica normal de la respiración.
+
 - Objetivos Especificos:
 
-- 
+  
 Reconocer y analizar las principales variables físicas involucradas en el proceso respiratorio para comprender su relación con el comportamiento del patrón respiratorio.
 
 
@@ -22,4 +23,4 @@ Desarrollar un sistema capaz de obtener el patrón respiratorio y calcular la fr
 
 
 Identificar y comparar las variaciones del patrón respiratorio durante tareas de verbalización frente a estados de reposo, con el propósito de interpretar posibles cambios fisiológicos.
-- 
+

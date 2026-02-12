@@ -277,4 +277,36 @@ Se le hace la FFT a la señal y se grafica.
 
 Al observar las señales respiratorias, se identifican semejanzas importantes: en ambos casos la respiración mantiene un patrón periódico y la frecuencia dominante se ubica aproximadamente entre 0.2 y 0.35 Hz , lo cual es consistente con valores normales en adultos sanos. Sin embargo, las diferencias son más notorias en la regularidad del ciclo. En reposo, la relación entre inhalación y exhalación es más estable y simétrica, con transiciones suaves que indican un control automático principalmente mediado por el sistema nervioso autónomo. Por el contrario, durante la verbalización la señal se vuelve más irregular: las exhalaciones tienden a prolongarse porque el aire se utiliza para producir el habla, mientras que las inhalaciones son más rápidas y profundas para reponer el volumen pulmonar. Esto también explica el ligero aumento en la magnitud de ciertas componentes en la FFT, asociado a variaciones del ritmo respiratorio y a microajustes fisiológicos necesarios para coordinar respiración y fonación.
 
+El uso del sensor de presión FSR40 demuestra ser útil para identificar parámetros básicos como frecuencia respiratoria, regularidad del ciclo y cambios en la amplitud de la señal. Estas variables pueden servir como indicadores preliminares de alteraciones, por ejemplo, respiraciones excesivamente rápidas, muy superficiales o patrones irregulares que podrían relacionarse con fatiga respiratoria, estrés o algunas enfermedades pulmonares, No obstante el alcance del sistema es principalmente de monitoreo y tamizaje, no diagnóstico. Entre sus limitaciones se encuentran la sensibilidad al movimiento, posibles interferencias por el habla u otras actividades, y la falta de variables complementarias como saturación de oxígeno o flujo de aire real.
+
 ## CONCLUSIONES
+
+Durante la práctica se pudo entender que la respiración no siempre ocurre de la misma forma, sino que cambia dependiendo de lo que esté haciendo la persona. Cuando el individuo está en reposo, la respiración es más constante y tranquila, mientras que al hablar el patrón se vuelve un poco más irregular, ya que el aire debe controlarse para poder producir la voz. Esto hace que algunas exhalaciones sean más largas y que las inhalaciones ocurran más rápido.
+
+También se observó que variables como la frecuencia respiratoria, la regularidad del ritmo y la profundidad de la respiración son muy útiles para notar si algo no está funcionando normalmente. Si estos parámetros cambian demasiado o pierden su estabilidad, podrían ser una señal de alerta.
+
+Para finalizar, el sistema utilizado en la práctica es una buena herramienta para monitorear la respiración y detectar cambios importantes, pero no es suficiente por sí solo para diagnosticar una enfermedad. Aun así, permite tener una idea clara del comportamiento respiratorio de una persona y puede servir como apoyo para identificar cuándo es necesario hacer una evaluación más detallada.
+
+## PREGUNTAS PARA LA DISCUSIÓN: 
+
+1, ¿Son los patrones respiratorios y frecuencias respiratorias iguales o diferentes en cada caso? ¿A qué se debe esto?
+
+Los patrones respiratorios no son iguales entre el estado de reposo y la verbalización. En reposo, la respiración se mantiene más estable y uniforme porque el cuerpo solo está cubriendo las necesidades básicas de oxígeno. En cambio, cuando la persona habla, el patrón cambia debido a que la respiración debe adaptarse para permitir la producción de la voz. Esto provoca que las exhalaciones sean un poco más largas, ya que el aire se utiliza para hablar, mientras que las inhalaciones suelen ser más rápidas para recuperar el aire perdido. Estas variaciones son normales y muestran cómo el sistema respiratorio puede ajustarse según la actividad que se esté realizando.
+
+2. ¿Cuáles serían las ventajas y desventajas de emplear múltiples sensores para el monitoreo del proceso respiratorio? ¿Cuáles podrían ser las razones?
+
+El uso de múltiples sensores puede mejorar la precisión del monitoreo respiratorio, ya que permite obtener más información y comparar diferentes señales al mismo tiempo. Esto ayuda a reducir errores y facilita la identificación de cambios reales en la respiración, haciendo que el análisis sea más confiable. Además, al contar con varias mediciones, es más fácil detectar patrones anormales que podrían pasar desapercibidos con un solo sensor.
+
+Sin embargo, también existen algunas desventajas. Implementar varios sensores hace que el sistema sea más costoso y complejo, tanto en su montaje como en el procesamiento de los datos. Además, puede generar incomodidad en la persona monitoreada, lo que incluso podría alterar su respiración natural. Por esta razón, aunque utilizar múltiples sensores aumenta la calidad de la información, es importante encontrar un equilibrio entre precisión, practicidad y comodidad.
+
+## BIBLIOGRAFÍA: 
+
+-Interlink Electronics. (s. f.). FSR® 400 Series datasheet. Digi-Key Electronics
+
+-Bhalla, A., Hambly, N., Szczeklik, W., & Jankowski, M. (2022). Respirations. McMaster Textbook of Internal Medicine. https://empendium.com/mcmtextbook/chapter/B31.I.1.24/
+
+-Medical News Today. (2023). Frecuencia respiratoria normal. https://www.medicalnewstoday.com/articles/es/frecuencia-respiratoria-normal
+
+-Healthline. (2022). Frecuencia respiratoria normal. https://www.healthline.com/health/es/frecuencia-respiratoria-normal
+
+-MedlinePlus. (s. f.). Respiración rápida y superficial. Biblioteca Nacional de Medicina de EE. UU. https://medlineplus.gov/spanish/ency/article/007198.htm

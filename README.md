@@ -8,7 +8,7 @@ La frecuencia respiratoria es el número de respiraciones que una persona realiz
 <img width="474" height="206" alt="Image" src="https://github.com/user-attachments/assets/eaebf699-c5db-4b9b-886b-4a9733961098" />
 </p>  
 <p align="center">
-<em>Figura 1. Ciclo respiratorio.
+Figura 1. Ciclo respiratorio.
 </p>
   
 El control del ritmo respiratorio depende del centro respiratorio localizado en el tronco encefálico, especialmente en la médula oblonga, el cual procesa información proveniente de distintos receptores y ajusta la ventilación para mantener un intercambio gaseoso adecuado. Entre los principales factores que regulan esta respuesta se encuentran los niveles de dióxido de carbono y oxígeno en la sangre, así como la actividad física, permitiendo conservar el equilibrio fisiológico del organismo. Asimismo, múltiples condiciones como enfermedades pulmonares, infecciones, alteraciones del sistema nervioso central, estrés o ejercicio intenso pueden modificar la frecuencia respiratoria, por lo que su análisis resulta fundamental para la valoración del estado de salud y la detección temprana de posibles alteraciones.
@@ -46,19 +46,32 @@ Identificar y comparar las variaciones del patrón respiratorio durante tareas d
 - Tomando en cuenta las caracteristica resistiva del sensor de presión se toma la decisión de usar un amplificador de instrumentación INA60 con fin de amplificar
 la señal aproximadamente 100 veces. A continuación se muestra el montaje donde se evidencia la ESP32 y la conexiones hechas.
 
+<p align="center">
+<img width="474" height="206" alt="Image" src="https://github.com/user-attachments/assets/2bbd953c-863a-4d3c-a8c5-084fa8e70434" />
+<p/>
+
+<p align="center">
+Figura 2. Montaje físico donde se observa la implementación de los elementos anteriormente mencionados.
+<p/>
+
+- La toma de la señal es en el epigastrio, más especificamente en el area del diafragma, el principio de captura del sensor es detectar los cambios de presión que se genera al inhalar y exhalar aire, donde se ve una clara distensión y contracción del diafragma al respirar, Se pega el sensor en el area anteriormente mencionada con cinta micropore para evitar lastimar la piel del sujeto en cuestion. Siguiente a esto se inicia la medición de datos en dos partes:
+  
+- En reposo durante 30 segundos.
+- Mientras se sostiene una conversación durante 30 segundos.
 
 
-## Captura de y graficación de la señal en Tiempo real. 
 
-A partir de este código en Matlab se hace la captura de la señal y el filtrado de la misma:  
+## Adquisición y gráficas
+
+Nuestra interfaz y adquisición se ve desarrollada en Matlab, a continuación se explica el funcionamiento del codigo:
+
 
 ```bash
 clc;
 clear;
 close all;
 
-
-Fs = 100;   % Frecuencia de muestreo [Hz]
+Fs = 100;   
 
 answer = inputdlg("Ingrese el tiempo de adquisición (s):", ...
                   "Tiempo de adquisición", 1, {"30"});
@@ -70,6 +83,9 @@ T = str2double(answer{1});
 if isnan(T) || T <= 0
     error("Tiempo inválido");
 end
+```
+Definimos una frecuencia de muestreo de 100 Hz y un imput donde podemos ingresar el tiempo que deseamos para capturar la señal, en este caso 30 segundos.
+```bash 
 
 N = Fs * T;
 
@@ -79,7 +95,9 @@ f_high = 1.0;   % Hz
 
 [b,a] = butter(2, [f_low f_high]/(Fs/2), 'bandpass');
 zf = zeros(max(length(a),length(b))-1,1);
-
+```
+Procedemos a diseñar nuestro filtro, en este caso un Butterworth pasa-banda de entre 0.1 y 1 Hz
+```bash 
 
 puerto = "COM3";
 baud   = 115200;
@@ -95,8 +113,11 @@ resp_raw = zeros(N,1);
 resp_f   = zeros(N,1);
 t        = (0:N-1)/Fs;
 
-k = 1;   % índice real de muestras válidas
+k = 1;   % índice real de muestras válidas}
+```
+Se habilita el puerto COM para la lectura de la señal procedente del ADC de la ESP32 y adicionalmente la señal procesada.
 
+```bash
 
 figure;
 
@@ -113,14 +134,14 @@ xlim([0 T]);
 
 while k <= N
 
-    linea = readline(s);              % leer línea del ESP32
-    linea = strtrim(linea);           % quitar espacios
+    linea = readline(s);              
+    linea = strtrim(linea);          
 
-    % Extraer número aunque venga con texto
+
     nums = regexp(linea, '[-+]?\d*\.?\d+', 'match');
 
     if isempty(nums)
-        continue                      % descarta líneas inválidas
+        continue                      
     end
 
     y = str2double(nums{1});
@@ -131,7 +152,7 @@ while k <= N
 
     resp_raw(k) = y;
 
-    % Filtrado pasa-banda
+  
     [yf, zf] = filter(b, a, y, zf);
     resp_f(k) = yf;
 
@@ -147,7 +168,10 @@ end
 
 disp("Adquisición finalizada.");
 clear s
+```
+Se grafíca la señal y se aplica el filtro, teniendo de color azul la señal filtrada y roja la señal sin procesamiento.
 
+```bash 
 
 filename = sprintf("senal_respiratoria_filtrada_%ds.mat", round(T));
 save(filename, "t", "resp_raw", "resp_f", "Fs");
@@ -155,11 +179,11 @@ save(filename, "t", "resp_raw", "resp_f", "Fs");
 disp("Archivo guardado:");
 disp(filename);
 ```
-Este es el código en Matlab que se encarga de abrir la imagen y realiza la transformada de fourier FFT en esta: 
+Finalmente se almacena la señal en la carpeta correspondiente
 
+## Procesamiento de la señal (FFT)
 
 ```bash
-
 clc;
 clear;
 close all;
@@ -183,6 +207,9 @@ whos
 if ~exist("t","var") || ~exist("resp_raw","var") || ~exist("Fs","var")
     error("El archivo no contiene las variables necesarias");
 end
+```
+Se cargan las señales desde la carpeta, teniendo la posibilidad de escoger que señal se desea procesar.
+```bash
 
 N = length(resp_raw);
 
@@ -202,9 +229,10 @@ xlabel("Tiempo [s]");
 ylabel("Señal respiratoria");
 title("Señal respiratoria en el tiempo");
 grid on;
+```
+Se cargan las señales anteriormente graficadas.
 
-
-
+```bash
 
 if exist("resp_f","var")
     x = resp_f - mean(resp_f);
@@ -228,15 +256,21 @@ ylabel("Magnitud");
 title("Transformada de Fourier (FFT)");
 grid on;
 ```
+Se le hace la FFT a la señal y se grafica.
 
 ## GRÁFICAS : 
 
 - Esta es la gráfica de una persona en resposo sin realizar ninguna verbalilzación:
+  
+<p align="center">
 <img width="757" height="497" alt="image" src="https://github.com/user-attachments/assets/63a077c7-ba8f-4228-905e-3208580b7b0f" />
-
+<p/>
+  
 - Esta es la gráfica de una persona que se encuentra realizando una verbalilzación:
-
+  
+<p align="center">
 <img width="752" height="505" alt="image" src="https://github.com/user-attachments/assets/4875e8b8-e838-40e3-9ddb-14e0fe81ea3e" />
+<p/>
 
 
 ## ANALÍSIS: 

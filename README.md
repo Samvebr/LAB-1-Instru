@@ -275,4 +275,6 @@ Se le hace la FFT a la señal y se grafica.
 
 ## ANALÍSIS: 
 
+Al observar las señales respiratorias, se identifican semejanzas importantes: en ambos casos la respiración mantiene un patrón periódico y la frecuencia dominante se ubica aproximadamente entre 0.2 y 0.35 Hz , lo cual es consistente con valores normales en adultos sanos. Sin embargo, las diferencias son más notorias en la regularidad del ciclo. En reposo, la relación entre inhalación y exhalación es más estable y simétrica, con transiciones suaves que indican un control automático principalmente mediado por el sistema nervioso autónomo. Por el contrario, durante la verbalización la señal se vuelve más irregular: las exhalaciones tienden a prolongarse porque el aire se utiliza para producir el habla, mientras que las inhalaciones son más rápidas y profundas para reponer el volumen pulmonar. Esto también explica el ligero aumento en la magnitud de ciertas componentes en la FFT, asociado a variaciones del ritmo respiratorio y a microajustes fisiológicos necesarios para coordinar respiración y fonación.
+
 ## CONCLUSIONES

@@ -2,7 +2,16 @@
 
   
 ## INTRODUCCIÓN: 
-La frecuencia respiratoria es el número de respiraciones que una persona realiza por minuto y constituye un signo vital importante que permite evaluar la eficiencia del sistema respiratorio y su adecuado funcionamiento. En adultos sanos en reposo, el rango normal se sitúa aproximadamente entre 12 y 20 respiraciones por minuto, aunque este valor puede variar con la edad, siendo generalmente mayor en recién nacidos y niños. La respiración normal, denominada eupnea, es rítmica y sin esfuerzo, y alteraciones en su frecuencia, profundidad o patrón pueden comprometer la ventilación y la oxigenación, además de servir como indicios clínicos de enfermedades sistémicas, neurológicas o metabólicas. El control del ritmo respiratorio depende del centro respiratorio localizado en el tronco encefálico, especialmente en la médula oblonga, el cual procesa información proveniente de distintos receptores y ajusta la ventilación para mantener un intercambio gaseoso adecuado. Entre los principales factores que regulan esta respuesta se encuentran los niveles de dióxido de carbono y oxígeno en la sangre, así como la actividad física, permitiendo conservar el equilibrio fisiológico del organismo. Asimismo, múltiples condiciones como enfermedades pulmonares, infecciones, alteraciones del sistema nervioso central, estrés o ejercicio intenso pueden modificar la frecuencia respiratoria, por lo que su análisis resulta fundamental para la valoración del estado de salud y la detección temprana de posibles alteraciones.
+La frecuencia respiratoria es el número de respiraciones que una persona realiza por minuto y constituye un signo vital importante que permite evaluar la eficiencia del sistema respiratorio y su adecuado funcionamiento. En adultos sanos en reposo, el rango normal se sitúa aproximadamente entre 12 y 20 respiraciones por minuto, aunque este valor puede variar con la edad, siendo generalmente mayor en recién nacidos y niños. La respiración normal, denominada eupnea, es rítmica y sin esfuerzo, y alteraciones en su frecuencia, profundidad o patrón pueden comprometer la ventilación y la oxigenación, además de servir como indicios clínicos de enfermedades sistémicas, neurológicas o metabólicas.}
+
+<p align="center">
+<img width="474" height="206" alt="Image" src="https://github.com/user-attachments/assets/eaebf699-c5db-4b9b-886b-4a9733961098" />
+</p>  
+<p align="center">
+<em>Figura 1. Ciclo respiratorio.
+</p>
+  
+El control del ritmo respiratorio depende del centro respiratorio localizado en el tronco encefálico, especialmente en la médula oblonga, el cual procesa información proveniente de distintos receptores y ajusta la ventilación para mantener un intercambio gaseoso adecuado. Entre los principales factores que regulan esta respuesta se encuentran los niveles de dióxido de carbono y oxígeno en la sangre, así como la actividad física, permitiendo conservar el equilibrio fisiológico del organismo. Asimismo, múltiples condiciones como enfermedades pulmonares, infecciones, alteraciones del sistema nervioso central, estrés o ejercicio intenso pueden modificar la frecuencia respiratoria, por lo que su análisis resulta fundamental para la valoración del estado de salud y la detección temprana de posibles alteraciones.
 
 ## OBJETIVOS: 
 
@@ -22,13 +31,22 @@ Desarrollar un sistema capaz de obtener el patrón respiratorio y calcular la fr
 Identificar y comparar las variaciones del patrón respiratorio durante tareas de verbalización frente a estados de reposo, con el propósito de interpretar posibles cambios fisiológicos.
 
 
-## REQUERIMIENTOS: 
+## MATERIALES Y PROCEDIMIENTO: 
 
--Módulo SP32
--Sensor de presión FSR40 
--Interfaz Matlab 
--Regleta de Proto-Board
--Cables y resistencias adecuadas. 
+### Materiales
+- Módulo SP32
+- Sensor de presión FSR40 
+- Interfaz Matlab 
+- Regleta de Proto-Board
+- Cables y resistencias adecuadas.
+- Amplificador de instrumentación INA60
+
+### Procedimiento.
+
+- Tomando en cuenta las caracteristica resistiva del sensor de presión se toma la decisión de usar un amplificador de instrumentación INA60 con fin de amplificar
+la señal aproximadamente 100 veces. A continuación se muestra el montaje donde se evidencia la ESP32 y la conexiones hechas.
+
+
 
 ## Captura de y graficación de la señal en Tiempo real. 
 
